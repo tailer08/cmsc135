@@ -1,6 +1,6 @@
 #Lab 1 Python Programming Exercises
 
-In this lab exercise, your task is to write 3 functions in Python given the specifications below. Make sure to that your 
+In this lab exercise, your task is to write 3 functions in Python given the specifications below. Make sure that your 
 code is compatible with Python 2. 
 
 ### Problem 1 - GO → goING
@@ -22,5 +22,12 @@ of the longest one. Use only higher order functions.
 ### Problem 3
 
 Write a function `is_member()` that takes a value (i.e. a number, string, etc) `x` and a list of values `a`, and returns `True` if `x` is a member of `a`, `False` otherwise. (Note that this is exactly what the `in` operator does, but for the sake of the exercise you should pretend Python did not have this operator.)
+
+
+####SUBMISSION
+
+Place your solutions inside a file called `lab1_python_cmsc135_lastname.py` and submit it to me in [Piazza](piazza.com/university_of_the_philippines_visayas_-_tacloban_college/spring2017/cmsc135/home). 
+
+
 
 
