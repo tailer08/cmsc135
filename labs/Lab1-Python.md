@@ -15,13 +15,13 @@ Your task in this exercise is to define a function `make_ing_form(word)` which g
 
 ### Problem 2
 
-Write a function `find_longest_word([list of words])` that takes a list of words and returns the length
+Write a function `find_longest_word(words)` that takes a list of words and returns the length
 of the longest one.
 
    
 ### Problem 3
 
-Write a function `is_member()` that takes a value (i.e. a number, string, etc) `x` and a list of values `a`, and returns `True` if `x` is a member of `a`, `False` otherwise. (Note that this is exactly what the `in` operator does, but for the sake of the exercise you should pretend Python did not have this operator.)
+Write a function `is_member(x, a)` that takes a value (i.e. a number, string, etc) `x` and a list of values `a`, and returns `True` if `x` is a member of `a`, `False` otherwise. (Note that this is exactly what the `in` operator does, but for the sake of the exercise you should pretend Python did not have this operator.)
 
 
 ####SUBMISSION
