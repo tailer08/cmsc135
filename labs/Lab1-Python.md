@@ -26,7 +26,7 @@ Write a function `is_member()` that takes a value (i.e. a number, string, etc) `
 
 ####SUBMISSION
 
-Place your solutions inside a file called `lab1_python_cmsc135_lastname.py` and submit it to me in [Piazza](piazza.com/university_of_the_philippines_visayas_-_tacloban_college/spring2017/cmsc135/home). 
+Place your solutions inside a file called `lab1_python_cmsc135_lastname.py` and submit it to me in [Piazza](https://piazza.com/university_of_the_philippines_visayas_-_tacloban_college/spring2017/cmsc135/home). 
 
 
 
