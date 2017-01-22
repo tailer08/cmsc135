@@ -1,7 +1,7 @@
 #Lab 1 Python Programming Exercises
 
 In this lab exercise, your task is to write 3 functions in Python given the specifications below. Make sure that your 
-code is compatible with Python 2. 
+code is compatible with Python 2. This lab exercise will prepare you for the socket programming exercise which you will do next meeting. 
 
 ### Problem 1 - GO → goING
 
@@ -16,7 +16,7 @@ Your task in this exercise is to define a function `make_ing_form(word)` which g
 ### Problem 2
 
 Write a function `find_longest_word([list of words])` that takes a list of words and returns the length
-of the longest one. Use only higher order functions.
+of the longest one.
 
    
 ### Problem 3
