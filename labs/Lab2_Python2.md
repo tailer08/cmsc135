@@ -9,8 +9,27 @@ Write a class called `SavingsAccount` that has the following properties and beha
 
 - Properties 
   - `+balance`, denotes the remaining balance of a bank account object.
-  - `-interest`, denotes the interest rate associated to a bank account object.
+  - `+interest`, denotes the interest rate associated to a bank account object.
 - Behaviours
-  - `+deposit(amount)`, lams na..
-  - `+withdraw(amount)`, adi gyap...
-  - `+add_interest()`, just compute the new balance using the following formula `balance = balance + balance * interest`
+  - `+deposit(amount)`, returns the new balance.
+  - `+withdraw(amount)`, returns the new balance.
+  - `+add_interest()`, computes the new balance using the following formula `balance = balance + compute_interest()` where `compute_interest` is a private method that computes and returns the interest using the formula `interest = balance * interest`.
+  - `+bank_information()`, a static method that displays the name and other arbitrary information about the bank to which the account is registered. For this exercise, this method should just return the string `Banko ni Juan` when called.  
+
+- Constructors. The class should respond to the following calls to its constructor method.
+  - `SavingsAccount()`, no argument call to the constructor should set the default value of `balance` to 0 and 0.05 for the `interest`.
+  - `SavingsAccount(number)`, a call to the constructor with only one parameter should set the value of `balance = number1` and `interest = 0.05`. 
+  - `SavingsAccount(number1, number2)`, a call to the constructor with both parameters set should set the value of `balance = number1` and `interest = number2`.
+  
+ ###Example Test Cases
+ 
+ ```
+ > a = SavingsAccount()
+ >
+ > a.balance  # should return 0
+ >
+ > a.interest # should return 0.05
+ > a.deposit(100) # should return 100
+ >
+ > SavingsAccount.bank_information()  # should return "Banko ni Juan"
+ ```
