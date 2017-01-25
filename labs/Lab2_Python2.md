@@ -1,6 +1,6 @@
 #Laboratory Exercise 2 - Python OOP
 
-In the previous exercise, you used some of the basic programming constructs in Python in writing solutions to the programming problems I have given you. For this exercise, you are required to learn some of the basic OOP constructs in Python to write your solution to the problem given below.
+In the previous exercise, you used some of the basic programming constructs in Python in writing your solutions to the programming problems I have given you. For this exercise, you are required to learn some of the basic OOP constructs in Python to write your solution to the problem given below.
 
 ##Submission
 
