@@ -1,15 +1,16 @@
-# Chat
 
-In this assignment, you'll build a simple application that connects users over a network: a chat server.  Similar to chat programs like [Slack](https://www.slack.com) and [IRC](https://tools.ietf.org/html/rfc1459), your finished chat server will allow users to converse in different channels.  Users can create and join channels; once a user is in a particular channel, all messages that she sends will be relayed to all other users in that channel.
+# Machine Problem #1 Chat
 
-This assignment (and the rest of the assignments in this class) should be implemented in Python 2.  This assignment will introduce you to the socket programming API.
+In this machine problem, you'll build a simple application that connects users over a network: a chat server.  Similar to chat programs like [Slack](https://www.slack.com) and [IRC](https://tools.ietf.org/html/rfc1459), your finished chat server will allow users to converse in different channels.  Users can create and join channels; once a user is in a particular channel, all messages that she sends will be relayed to all other users in that channel.
+
+This machine problem (and the rest of the exercises in this class) should be implemented in Python 2 unless otherwise specified.  This exercise will introduce you to the socket programming API.
 
 #### Logistics
 
-- This project is due on Friday 9/9 at 11:59pm
-- This project should be completed individually (refer to the [course website](https://netsys.github.io/cs168fa16/about.html) for collaboration policies)
-- The skeleton code for this project is available from [here](https://github.com/NetSys/cs168_student/blob/master/projects/proj1_chat). You can download the code manually from that page, or use git.
-- You'll submit your code using `ok`. You should submit two files: one named `client.py` and one named `server.py`. You should not modify or submit `utils.py`. More detailed submission instructions can be found in the [submission details](#submission-details) section.
+- This project is due on February 15, at 11:59pm
+- This project can be completed in pairs 
+- The skeleton code for this project is available from [here](https://github.com/jultra/cmsc135/tree/master/projects/proj1_chat). You can download the code manually from that page, or use git.
+- You'll submit your code in Piazza. You should submit three (3) files: one named `client.py` , one named `server.py` and one name readme.md. You should not modify or submit `utils.py`. More detailed submission instructions can be found in the [submission details](#submission-details) section. Your readme.md shall contain at least the names of the group members and other information about your solution.
 
 #### Resources
 
@@ -52,11 +53,11 @@ will block until there is data to receive from the client, and will return up to
 
 You'll need to do some reading to understand how all of these API calls work.  __In particular, be careful when using `send` and `recv`! `send`, for example, will not necessarily send all of the data passed into it.__  The [Python Socket Programming HOWTO](https://docs.python.org/2/howto/sockets.html) will likely be a useful resource.
 
-## Part 0 (to be completed in section)
+## Part 0 (to be completed as a laboratory exercise today!!)
 
-The first part of the assignment will help you get started with the socket programming API and introduce you to basic client-server interaction.  __This part of the assignment will not be graded, and you'll complete it in section on 8/31.__
+The first part of the machine problem will help you get started with the socket programming API and introduce you to basic client-server interaction. 
 
-For this part of the assignment, you'll write a simple client and server.  The client will send a single message from stdin to the server and then disconnect.  The server should print messages it receives to stdout.  If multiple clients connect to the server, the server should handle them sequentially (i.e., it should print the complete message from one client and close that connection before handling the next client).
+For this part of the exercise, you'll write a simple client and server.  The client will send a single message from stdin to the server and then disconnect.  The server should print messages it receives to stdout.  If multiple clients connect to the server, the server should handle them sequentially (i.e., it should print the complete message from one client and close that connection before handling the next client).
 
 The server should accept one command line argument, stating the port that the server should use:
 
@@ -92,9 +93,9 @@ If a server had been started on port 12345 before the client was run, it should 
     Why is Shenker so bad at drawing?
  
 
-## Part 1
+## Part 1 (Machine Problem #1)
 
-In the remainder of the assignment, you'll build on your basic client and server to create a chat server with different channels that clients can communicate on.  For a demo of how your server should behave, watch the video [here](https://youtu.be/4btZs--wlpI).
+In the remainder of the exercise, you'll build on your basic client and server to create a chat server with different channels that clients can communicate on.  For a demo of how your server should behave, watch the video [here](https://youtu.be/4btZs--wlpI).
 
 ### Server Functionality
 
@@ -112,7 +113,7 @@ The second type of message is normal messages to the client's current channel.  
 
 When a client disconnects, a message should be broadcasted to all members of the client's channel saying that the client disconnected.
 
-Sockets provide a data stream functionality, but they don't delineate different messages.  When a given `recv` call returns some data, the socket won't tell you whether the data returned is a single message, or multiple messages, or part of one message.  As a result, you'll need a way to determine when a message ends.  For this assignment, use fixed length messages that have 200 characters for all messages (including messages from the server to the client). If a message is shorter than 200 characters, you should pad the message with spaces (and the receiver should strip any spaces off of the end of the message). You can assume that no messages are longer than 200 characters.
+Sockets provide a data stream functionality, but they don't delineate different messages.  When a given `recv` call returns some data, the socket won't tell you whether the data returned is a single message, or multiple messages, or part of one message.  As a result, you'll need a way to determine when a message ends.  For this exercise, use fixed length messages that have 200 characters for all messages (including messages from the server to the client). If a message is shorter than 200 characters, you should pad the message with spaces (and the receiver should strip any spaces off of the end of the message). You can assume that no messages are longer than 200 characters.
 
 Be sure that your code correctly handles the case where less than one message is available in the socket's buffer (so a `recv` call returns fewer than 200 characters of data) and the case where more than one message is available in the socket's buffer.  You should handle partial messages by buffering: if a `recv` call returns only part of a message, your code should hold on to the part of the message until the remainder of the mesage is received, and then handle the complete message.  For example, if a client receives 150 characters from the server, it should hold those 150 characters until 50 more characters are received.  The client should only write the message to stdout once all 200 characters have been received.  To help you check for your server's handling of these cases, we've provided a special client (`client_split_messages.py`) that splits messages into many smaller messages before sending them to the server.  This client only tests some of the scenarios your server should handle!  You'll likely want to modify this client to test for additional cases.
 
@@ -128,7 +129,7 @@ You can use the `.format` function to replace the brackets with strings as follo
 
 __You are required to use the error messages defined in `utils.py`.  If you do not use these error messages (with appropriate formatting), you will not get credit for error handling.__
 
-When commands lead to an error, the command should not cause any changes at the server.  For example, if a client is currently in the `cs168_tas` channel and then tries to join a channel that doesn't exist, the client should __not__ be removed from the `cs168_tas` channel.
+When commands lead to an error, the command should not cause any changes at the server.  For example, if a client is currently in the `cmsc135_gwaps` channel and then tries to join a channel that doesn't exist, the client should __not__ be removed from the `cmsc135_gwaps` channel.
 
 We will only test for errors that have associated error messages in `utils.py` in our testing.  You're welcome to check for additional errors if you'd like, but you will not be graded on them.
 
@@ -148,19 +149,19 @@ Here's an example of a client's interaction with a server that was started local
 	[Me] Hello world!
 	Not currently in any channel. Must join a channel before sending messages.
 	[Me] /list
-	[Me] /create 168_tas
+	[Me] /create 135_gwaps
 	[Me] /list
-	168_tas
+	135_gwaps
 	[Me] Hello world!
 	Alice has joined
 	[Alice] Hi everyone! Does anyone know what we're doing on the first day of lecture?
 	
-After seeing Alice's message, Panda stopped his client. After Panda created the 168_tas channel, a second client started:
+After seeing Alice's message, Panda stopped his client. After Panda created the 145_gwaps channel, a second client started:
 
 	python chatv3_client.py Alice 127.0.0.1 55555
 	[Me] /list
-	168_tas
-	[Me] /join 168_tas
+	135_gwaps
+	[Me] /join 135_gwaps
 	[Me] Hi everyone! Does anyone know what we're doing on the first day of lecture?
 	Panda has left
 
@@ -180,9 +181,7 @@ To use non-blocking sockets, you'll need to use the `select` call in the `select
 
 ## Submission Details
 
-You will be submitting your project on [okpy](http://okpy.org). When you visit the webpage, sign in using your preferred email from bCourses (Unless you have changed it, this should default to your Berkeley email). You should already be automatically registered as a student in the course. If this is not the case or you encounter any issues, please fill out this [form](https://docs.google.com/a/berkeley.edu/forms/d/e/1FAIpQLScA8gyPc1C0bNCAqWyKWWZRANuXBP2yslFeddtrwtvI6pyIjA/viewform).
-
-You can then upload your project files into the "Project 1" assignment by selecting the assignment and then selecting to create a new submission. You will not be receiving any feedback from the autograder until the project is over, but you can submit as many times as you want. By default, your most recent submission will be graded. If you don't want this behavior, you can select to have a previous one graded instead.
+You will be submitting your project on our Piazza page. Please upload your project files as an archive as a private post to me in Piazza. 
 
 ## FAQ
 
@@ -216,7 +215,7 @@ If you started a server locally, your client can access the server using "localh
 		
 The first entry above is the loopback address, which can be used to access the machine locally.  You'll notice the IP address of this interface (listed after `inet`) is always `127.0.0.1`.  Look for an interface listed with an IP address that's different than the loopback one -- in this example, the externally reachable IP address is `127.19.131.124` (listed under `en0`).
 
-If you're behind a [NAT](http://en.wikipedia.org/wiki/Network_address_translation), you won't be able to reach your server from different machines.  We'll learn more about NATs later this semester.  In the meantime, if you'd like to play around with using your server from remote machines, try running it while connected to the wifi in Soda hall, which doesn't use a NAT, and assigns users unique IP addresses.
+If you're behind a [NAT](http://en.wikipedia.org/wiki/Network_address_translation), you won't be able to reach your server from different machines.  We'll learn more about NATs later this semester.  However, if your machine is connected to the school network, other machines in the network should be able to access it.
 
 ##### What's a good port number to pass in?
 
@@ -228,7 +227,7 @@ This error means that another process is currently using the port.  Sometimes th
 
 ##### What maximum number of connections should I use in the `listen` call?
 
-5 is fine for this assignment.
+5 is fine for this project.
 
 ##### Using a fixed-length message seems clunky and wasteful.  What are some alternatives?
 
@@ -266,5 +265,7 @@ Unfortunately, stdin does not count as a socket in Windows due to how file descr
 
 
 ### Acknowledgments
+
+This machine problem was taken from the programming assignments in Prof. Scott Shenker's class in [Introduction to the Internet:Architecture and Protocols] (http://cs168.io/). 
 
 This assignment was inspired by the [Introduction to Socket Programming Assignment](http://www.cs.princeton.edu/courses/archive/spr15/cos461/assignments/0-sockets.html) in Princeton's Computer Networking course.
