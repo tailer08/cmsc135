@@ -4,10 +4,10 @@ In this assignment, you'll implement distance-vector routing, a distributed rout
 
 #### Logistics
 
-- This project is due on Monday 10/10 at 11:59pm.
-- This project should be completed individually or in pairs (refer to the [course website](http://cs168.io/about.html) for collaboration policies). Additionally, you may share your tests with anyone in the class.
-- The skeleton code for this project is available on [GitHub](https://github.com/NetSys/cs168_student/blob/master/projects/proj2_routing). You can download the code manually from that page, or use Git.
-- You'll submit your code using `ok`. You should submit two files: one named `learning_switch.py` and one named `dv_router.py`. You should write your own tests by adding files to `tests/` and `topos/`, but no need to submit them. Don't modify `simulator.py` or anything in `sim/`. More detailed submission instructions can be found in the [submission details](#submission-details) section.
+- This project is due on Friday 03/03 at 11:59pm.
+- This project should be completed individually or in pairs. Additionally, you may share your tests with anyone in the class.
+- The skeleton code for this project is available on [GitHub](https://github.com/jultra/cmsc135/tree/master/projects/proj2_routing). You can download the code manually from that page, or use Git.
+- You'll submit your code using again in `Piazza`. You should submit two files: one named `learning_switch.py` and one named `dv_router.py`. You should write your own tests by adding files to `tests/` and `topos/`, but no need to submit them. Don't modify `simulator.py` or anything in `sim/`. More detailed submission instructions can be found in the [submission details](#submission-details) section.
 
 #### Resources
 
@@ -80,10 +80,12 @@ See the [FAQ page](faq.md).
 
 ## Submission Details
 
-You will be submitting your project on [okpy](http://okpy.org). When you visit the webpage, sign in using your Berkeley email. You should already be automatically registered as a student in the course. If this is not the case or you encounter any issues, please fill out this [form](https://docs.google.com/a/berkeley.edu/forms/d/e/1FAIpQLScA8gyPc1C0bNCAqWyKWWZRANuXBP2yslFeddtrwtvI6pyIjA/viewform).
+You will be submitting your project code on our class page in [Piazza](https://piazza.com/class/iy1ja1625e1rn). 
 
-You can then upload your project files into the "Project 2" assignment by selecting the assignment and then selecting to create a new submission. You will not be receiving any feedback from the autograder until the project is over, but you can submit as many times as you want. By default, your most recent submission will be graded. If you don't want this behavior, you can select to have a previous one graded instead.
+You can then upload your project files as a Private Post to me.
 
 ## Acknowledgments
+
+This machine problem was taken from the programming assignments in Prof. Scott Shenker's class in [Introduction to the Internet:Architecture and Protocols] (http://cs168.io/). 
 
 This assignment was developed by Murphy McCauley in [Fall 2011](https://inst.eecs.berkeley.edu/~ee122/fa11/).
