@@ -6,13 +6,35 @@ class Measurement:
         for hostname in hostnames:
             ping_call   = subprocess.Popen( [ 'ping', '-c ' + str(num_packets) , hostname ], stdout=subprocess.PIPE )
             ping_result = ping_call.communicate()[0]
-            print "*************************************"
+            ping_result_array = ping_result.split(' ');
             print (ping_result)
-            print "*************************************"
-    def create_json():
-        data = {
-            "My" : "sample"
-        }
+            # retrieve rtts
+            ping_time_float = []
+            for word in ping_result_array:
+                if "time" in word:
+                    print (word[5:])
+                    if not word[5:]:
+                        continue
+                    else:
+                        ping_time_float.append(float(word[5:]))
+            print(ping_time_float)
+
+            json_data = []
+            json_data.append({
+                hostname : ping_time_float
+            })
+            with open('my_sample_data.json', 'w') as outfile:
+                json.dump(json_data, outfile);
+
+    def create_json(self):
+        data = []
+        data.append({
+            "My" : "sample sample"
+        })
+
+        data.append({
+            "My" : "sample sample sample"
+        })
         with open('my_sample_data.json', 'w') as outfile:
             json.dump(data, outfile);
     #
@@ -21,4 +43,5 @@ class Measurement:
     # def plot_ping_cdf():
 
 instance = Measurement();
-instance.run_ping(['www.google.com', 'www.facebook.com'], 10);
+instance.run_ping(['www.google.com'], 10);
+# instance.create_json();
